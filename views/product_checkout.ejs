@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head.ejs") %>
+    <title>The Mobile Hour - Checkout</title>
+  </head>
+  <body>
+    <main>
+      <%- include("partials/header.ejs") %>
+      <section class="checkout-layout">
+        <article class="phone-card">
+          <img src="img/phone.jpg" alt="Mobile phone" />
+          <h2><%- product.product_name %></h2>
+          <span><%- product.product_model %></span>
+          <p><%- product.product_price %></p>
+        </article>
+        <form action="/create_order" method="post" class="form-grid">
+          <input type="hidden" name="product_id" value="<%- product.product_id %>" />
+
+          <label for="customer-first-name">First Name:</label>
+          <input type="text" name="customer_first_name" id="customer-first-name" />
+
+          <label for="customer-last-name">Last Name:</label>
+          <input type="text" name="customer_last_name" id="customer-last-name" />
+
+          <label for="customer-address">Address:</label>
+          <input type="text" name="customer_address" id="customer-address" />
+
+          <label for="customer-email">Email:</label>
+          <input type="email" name="customer_email" id="customer-email" />
+
+          <label for="customer-phone">Phone:</label>
+          <input type="tel" name="customer_phone" id="customer-phone" />
+          <a href="/" class="link-button">Back</a>
+          <input type="submit" value="Pay" />
+        </form>
+      </section>
+      <%- include("partials/footer.ejs") %>
+    </main>
+  </body>
+</html>
